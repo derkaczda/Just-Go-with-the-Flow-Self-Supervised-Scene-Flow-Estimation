@@ -2,7 +2,7 @@
 
 
 
-CUDA_HOME := ${CUDA_HOME} #/home/hmittal/cuda-9.0
+CUDA_HOME := ${CUDA_HOME}
 
 TF_INC = `python3 -c "import tensorflow; print(tensorflow.sysconfig.get_include())"`
 TF_LIB = `python3 -c "import tensorflow as tf; print(tf.sysconfig.get_lib())"`

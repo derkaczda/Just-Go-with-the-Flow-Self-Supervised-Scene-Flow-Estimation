@@ -2,7 +2,7 @@
 
 
 
-CUDA_HOME := ${CUDA_HOME} #/home/hmittal/cuda-9.0
+CUDA_HOME := ${CUDA_HOME}
 
 TF_INC = `python3 -c "import tensorflow; print(tensorflow.sysconfig.get_include())"`
 TF_LIB = `python3 -c "import tensorflow as tf; print(tf.sysconfig.get_lib())"`
@@ -27,6 +27,6 @@ tf_sampling_so.so: tf_sampling.cpp tf_sampling_g.cu.o
 
 tf_sampling_g.cu.o: tf_sampling_g.cu
 	$(NVCC) -std=c++11 -c -o tf_sampling_g.cu.o tf_sampling_g.cu -I$(TF_INC) -DGOOGLE_CUDA=1 -x cu -Xcompiler -fPIC -arch $(arch) --use_fast_math
-		
+
 clean:
 	rm *.o *.so
