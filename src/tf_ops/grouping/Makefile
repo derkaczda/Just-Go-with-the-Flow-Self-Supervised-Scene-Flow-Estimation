@@ -23,7 +23,7 @@ INCLUDE_PATH=$(CUDA_HOME)/include
 all: tf_grouping_so.so
 
 tf_grouping_so.so: tf_grouping.cpp tf_grouping_g.cu.o
-	g++ -std=c++11 -shared -fPIC -o tf_grouping_so.so tf_grouping.cpp tf_grouping_g.cu.o -I$(TF_INC) -I$(INCLUDE_PATH) -L$(LIBFLAGS) -O2 -D_GLIBCXX_USE_CXX11_ABI=0
+	g++ -std=c++11 -shared -fPIC -o tf_grouping_so.so tf_grouping.cpp tf_grouping_g.cu.o -I$(TF_INC) -I$(INCLUDE_PATH) -L$(LIBFLAGS) -O2
 
 tf_grouping_g.cu.o: tf_grouping_g.cu
 	$(NVCC) -std=c++11 -c -o tf_grouping_g.cu.o tf_grouping_g.cu -I$(TF_INC) -DGOOGLE_CUDA=1 -x cu -Xcompiler -fPIC -arch $(arch) --use_fast_math

@@ -21,7 +21,7 @@ INCLUDE_PATH=$(CUDA_HOME)/include
 all: tf_interpolate_so.so
 
 tf_interpolate_so.so: tf_interpolate.cpp
-	g++ -std=c++11 -shared -fPIC -o tf_interpolate_so.so tf_interpolate.cpp -I$(TF_INC) -I$(INCLUDE_PATH) -L$(LIBFLAGS) -O2 -D_GLIBCXX_USE_CXX11_ABI=0
+	g++ -std=c++11 -shared -fPIC -o tf_interpolate_so.so tf_interpolate.cpp -I$(TF_INC) -I$(INCLUDE_PATH) -L$(LIBFLAGS) -O2
 
 clean:
 	rm *.so
